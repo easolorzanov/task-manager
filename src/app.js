@@ -28,10 +28,12 @@ app.use("/api", taksRoutes);
 if (process.env.NODE_ENV === "production") {
   const path = await import("path");
   app.use(express.static("src/dist"));
+  app.use(express.static("dist"));
 
   app.get("*", (req, res) => {
     console.log(path.resolve("src", "dist", "index.html"));
     res.sendFile(path.resolve("src", "dist", "index.html"));
+
   });
 }
 
