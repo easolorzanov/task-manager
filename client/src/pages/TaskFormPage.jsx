@@ -22,8 +22,7 @@ export function TaskFormPage() {
   const onSubmit = async (data) => {
     try {
       if (params.id) {
-        updateTask(params.id, {
-          ...data,
+        updateTask(params.id, data, {
           date: dayjs.utc(data.date).format(),
         });
       } else {
@@ -33,7 +32,7 @@ export function TaskFormPage() {
         });
       }
 
-      // navigate("/tasks");
+      navigate("/tasks");
     } catch (error) {
       console.log(error);
       // window.location.href = "/";

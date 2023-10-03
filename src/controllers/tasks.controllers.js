@@ -2,7 +2,7 @@ import Task from "../models/task.model.js";
 
 export const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ user : req.user.id }).populate("user");
+    const tasks = await Task.find({ user: req.user.id }).populate("user");
     res.json(tasks);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -45,7 +45,8 @@ export const updateTask = async (req, res) => {
       { title, description, date },
       { new: true }
     );
-    return res.json(taskUpdated);
+    console.log(taskUpdated);
+    //return res.json(taskUpdated);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
